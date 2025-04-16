@@ -1,0 +1,44 @@
+pages:
+
+view all sections [v], with edit and delete options
+view all posts [v], with edit and delete options
+view all comments [v], with edit and delete options
+
+view posts in section [v], with edit and delete options
+view post [v] with vote lists, edit and delete options, with comments with edit and delete options
+
+view user, with edit and delete options
+
+edit user
+edit section
+edit post
+edit comment
+
+login
+sign up
+
+================================================================================
+
+components:
+
+list box with page navigation [v]
+
+listed section box [v]
+listed post box [v]
+listed comment box
+
+shown section box [v]
+shown post box [v]
+shown comment box
+
+edit section box
+edit post box
+edit comment box
+
+post vote list box
+comment vote list box
+
+user box
+
+login
+sign up

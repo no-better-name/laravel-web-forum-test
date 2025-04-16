@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Fallback name'),
 
     /*
     |--------------------------------------------------------------------------
@@ -121,6 +121,21 @@ return [
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
+    ],
+
+    'jingle' => 'Don\'t forget to free()!',
+
+    'pagination_item_counts' => [10, 25, 50],
+    'vote_pagination_item_counts' => [20, 50, 100],
+
+    'key_to_query' => ['sort_by' => 'sort', 'order' => 'order', 'show_count' => 'show'],
+
+    'allow_sort' => ['created_at'],
+
+    'query_default_params' => ['sort_by' => 'created_at', 'order' => 'desc'],
+
+    'user_errors' => [
+        'view-user-error', 'edit-post-error', 'delete-post-error', 'create-post-error',
     ],
 
 ];

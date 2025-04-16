@@ -16,23 +16,68 @@ class User extends Authenticatable
 
     public function sections(): HasMany
     {
-        return $this->hasMany(Section::class);
+        return $this->hasMany(Section::class)->chaperone();
     }
-    public function voted_on_posts(): BelongsToMany
+
+    public function posts_voted(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class, 'post_votes')->withTimestamps();
+        return $this->belongsToMany(Post::class, 'post_votes')->using(PostVote::class)->as('vote')->withPivot('vote')->withTimestamps();
     }
-    public function voted_on_comments(): BelongsToMany
+    public function posts_upvoted(): BelongsToMany
     {
-        return $this->belongsToMany(Comment::class, 'comment_votes')->withTimestamps();
+        return $this->posts_voted()->wherePivot('vote', '=', 'up');
     }
+    public function posts_downvoted(): BelongsToMany
+    {
+        return $this->posts_voted()->wherePivot('vote', '=', 'down');
+    }
+
+    public function post_votes(): HasMany
+    {
+        return $this->hasMany(PostVote::class)->chaperone();
+    }
+    public function post_upvotes(): BelongsToMany
+    {
+        return $this->post_votes()->where('vote', '=', 'up');
+    }
+    public function post_downvotes(): BelongsToMany
+    {
+        return $this->post_votes()->where('vote', '=', 'down');
+    }
+
+    public function comments_voted(): BelongsToMany
+    {
+        return $this->belongsToMany(Comment::class, 'comment_votes')->using(CommentVote::class)->as('vote')->withPivot('vote')->withTimestamps();
+    }
+    public function comments_upvoted(): BelongsToMany
+    {
+        return $this->comments_voted()->wherePivot('vote', '=', 'up');
+    }
+    public function comments_downvoted(): BelongsToMany
+    {
+        return $this->comments_voted()->wherePivot('vote', '=', 'down');
+    }
+
+    public function comment_votes(): HasMany
+    {
+        return $this->hasMany(CommentVote::class)->chaperone();
+    }
+    public function comment_upvotes(): BelongsToMany
+    {
+        return $this->comment_votes()->where('vote', '=', 'up');
+    }
+    public function comment_downvotes(): BelongsToMany
+    {
+        return $this->comment_votes()->where('vote', '=', 'down');
+    }
+
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->chaperone();
     }
     public function comments(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->chaperone();
     }
 
     /**

@@ -1,0 +1,66 @@
+:root {
+    --forum-blue-lvl1: #659ad2;
+    --forum-blue-lvl2: #00599c;
+    --forum-blue-lvl3: #004482;
+    --banner-text-main: white;
+    --banner-text-username: lightgray;
+    --banner-text-hostname: #cdcd00;
+}
+
+body {
+    background-color: var(--forum-blue-lvl1) !important;
+}
+
+footer {
+    background-color: var(--forum-blue-lvl3);
+    background-image: var(--bs-gradient);
+}
+
+.bg-list {
+    background-color: var(--forum-blue-lvl2) !important;
+    background-image: var(--bs-gradient) !important;
+}
+.bg-list-item {
+    background-color: var(--forum-blue-lvl3) !important;
+}
+
+
+.bg-pagination {
+    background-color: var(--forum-blue-lvl3) !important;
+    /*background-image: var(--bs-gradient) !important;*/
+}
+
+.bg-button-group {
+    background-color: white;
+    background-image: var(--bs-gradient);
+}
+
+.bg-header {
+    background-color: white;
+}
+
+.banner-textbox {
+    background-color: var(--forum-blue-lvl2);
+    background-image: var(--bs-gradient);
+}
+
+.banner-terminal {
+    color: var(--banner-text-main);
+}
+
+.banner-terminal-prompt {
+    font-weight: bold;
+}
+
+.banner-terminal-prompt-username {
+    color: var(--banner-text-username);
+}
+
+.banner-terminal-prompt-hostname {
+    color: var(--banner-text-hostname);
+}
+
+.forum-navbar {
+    background-color: var(--forum-blue-lvl3);
+    background-image: var(--bs-gradient);
+}
